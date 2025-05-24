@@ -10,7 +10,10 @@
 
     <ol>
       <% lists.forEach((el, ind) => { %>
-      <a href="/todo/<%= ind %>"> <li><%= el.toDo %></li></a>
+      <li><a href="/todo/<%= ind %>"><%= el.toDo %> </a></li>
+      <form action="/todo/<%= ind %>?_method=DELETE" method="POST">
+        <input type="submit" value="Done" />
+      </form>
       <%})%>
     </ol>
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edit</title>
+  </head>
+  <body>
+    <h1>edit</h1>
+    <form action="/todo/<%= index %>?_method=put" method="post">
+      <label for="name"> To Do </label>
+      <input type="text" name="toDo" id="toDo" value="<%= list.toDo %>" />
+
+      <label for="description"> Description</label>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        value="<%= list.description%> "
+      />
+
+      <input type="submit" value="create new list" />
+    </form>
+  </body>
+</html>
