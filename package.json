@@ -1,13 +1,13 @@
 {
   "name": "todo_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "to do mini applicaiton",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Naseer Wakhan",
   "license": "ISC"
 }
