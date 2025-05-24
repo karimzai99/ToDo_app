@@ -1,0 +1,178 @@
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  padding: 2rem;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #343a40;
+}
+
+/* Form styling */
+form {
+  background-color: #fff;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #495057;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form input[type="checkbox"] {
+  width: auto;
+  margin-left: 0.25rem;
+  vertical-align: middle;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+form input[type="submit"] {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* To-do list container */
+.todo-list {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* List styles */
+.todo-list ol {
+  padding-left: 1.2rem;
+  list-style: decimal;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+.task-text {
+  flex: 1; /* takes all space except button */
+  padding-right: 1rem;
+}
+
+.task-text a {
+  font-size: 1.1rem;
+  color: #007bff;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.task-text a:hover {
+  text-decoration: underline;
+}
+
+/* Delete button form */
+form[action*="DELETE"] {
+  margin: 0;
+}
+
+form[action*="DELETE"] input[type="submit"] {
+  background-color: #dc3545;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 70px;
+  transition: background-color 0.3s ease;
+}
+
+form[action*="DELETE"] input[type="submit"]:hover {
+  background-color: #a71d2a;
+}
+
+/* General links */
+a {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Center helper */
+.center {
+  text-align: center;
+}
+
+/* Buttons (like create new task) */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+/* Edit & Show page containers */
+.edit-container,
+.view-container {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

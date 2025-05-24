@@ -3,17 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>View ToDo</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <h1>view</h1>
+    <div class="view-container">
+      <% if (list) { %>
+      <h1><%= list.toDo %></h1>
+      <p>
+        <strong>Description:</strong>
+        <%= list.description || 'No description provided.' %>
+      </p>
+      <% } %>
 
-    <% if (list) { %>
-    <h1><%= list.toDo %></h1>
-    <strong> <%= list.description%> </strong>
-    <%}%>
-
-    <a href="/todo/<%= parm %>/edit">Edit</a>
-    <a href="/todo"> Home </a>
+      <div class="buttons">
+        <a href="/todo/<%= parm %>/edit" class="btn">Edit</a>
+        <a href="/todo" class="btn" style="background-color: #007bff">Home</a>
+      </div>
+    </div>
   </body>
 </html>
