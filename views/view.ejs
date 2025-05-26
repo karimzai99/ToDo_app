@@ -3,21 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View ToDo</title>
+    <title>View Task</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <div class="view-container">
-      <% if (list) { %>
       <h1><%= list.toDo %></h1>
       <p>
         <strong>Description:</strong>
         <%= list.description || 'No description provided.' %>
       </p>
-      <% } %>
+      <p>
+        <strong>Status:</strong>
+        <%= list.isDone ? '✅ Completed' : '🕒 InProgress' %>
+      </p>
 
       <div class="buttons">
-        <a href="/todo/<%= parm %>/edit" class="btn">Edit</a>
+        <% if (!list.isDone) { %>
+        <a href="/todo/<%= parm %>/edit" class="btn">✏️ Edit</a>
+        <% } else { %>
+        <p><em>This task is completed and cannot be edited.</em></p>
+        <% } %>
         <a href="/todo" class="btn" style="background-color: #007bff">Home</a>
       </div>
     </div>

@@ -37,8 +37,8 @@ app.delete("/todo/:index", (req, res) => {
 });
 
 // update route
-app.put("/todo/:index", (req, res) => {
-  lists[req.params.index] = req.body;
+app.put("/todo/:khar", (req, res) => {
+  lists[req.params.khar].isDone = !lists[req.params.khar].isDone;
   res.redirect("/todo");
 });
 
