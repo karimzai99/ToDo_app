@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Task</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
+  <%- include('./partials/header') %>
   <body>
     <div class="view-container">
       <h1><%= list.toDo %></h1>
@@ -27,5 +22,6 @@
         <a href="/todo" class="btn" style="background-color: #007bff">Home</a>
       </div>
     </div>
+    <%- include('./partials/footer') %>
   </body>
 </html>
