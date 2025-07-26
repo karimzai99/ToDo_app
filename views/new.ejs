@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/header') %>
+  <%- include("partials/header") %>
   <body>
-    <h1>new item</h1>
-    <form action="/todo" method="post">
-      <label for="name"> To Do </label>
-      <input type="text" name="toDo" id="toDo" />
+    <h1>Create a New Todo</h1>
 
-      <label for="description"> Description</label>
+    <form action="/todo" method="POST">
+      <label for="todo">Todo</label>
+      <input type="text" name="todo" id="todo" required />
+
+      <label for="description">Description</label>
       <input type="text" name="description" id="description" />
 
-      <input type="submit" value="create new list" />
+      <label for="isDone">
+        <input type="checkbox" name="isDone" id="isDone" />
+        Mark as Done
+      </label>
+
+      <input type="submit" value="Create Todo" />
     </form>
-    <%- include('./partials/footer') %>
+
+    <%- include("partials/footer") %>
   </body>
 </html>

@@ -3,24 +3,28 @@
   <%- include('./partials/header') %>
   <body>
     <div class="view-container">
-      <h1><%= list.toDo %></h1>
-      <p>
-        <strong>Description:</strong>
-        <%= list.description || 'No description provided.' %>
-      </p>
-      <p>
-        <strong>Status:</strong>
-        <%= list.isDone ? '✅ Completed' : '🕒 InProgress' %>
-      </p>
+      <% todos.forEach(todo => { %>
+      <div class="todo-item">
+        <h1><%= todo.toDo %></h1>
+        <p>
+          <strong>Description:</strong>
+          <%= todo.desciption || 'No description provided.' %>
+        </p>
+        <p>
+          <strong>Status:</strong>
+          <%= todo.isDone ? '✅ Completed' : '🕒 In Progress' %>
+        </p>
 
-      <div class="buttons">
-        <% if (!list.isDone) { %>
-        <a href="/todo/<%= parm %>/edit" class="btn">✏️ Edit</a>
-        <% } else { %>
-        <p><em>This task is completed and cannot be edited.</em></p>
-        <% } %>
-        <a href="/todo" class="btn" style="background-color: #007bff">Home</a>
+        <div class="buttons">
+          <% if (!todo.isDone) { %>
+          <a href="/todo/<%= todo._id %>/edit" class="btn">✏️ Edit</a>
+          <% } else { %>
+          <p><em>This task is completed and cannot be edited.</em></p>
+          <% } %>
+          <a href="/todo" class="btn" style="background-color: #007bff">Home</a>
+        </div>
       </div>
+      <% }) %>
     </div>
     <%- include('./partials/footer') %>
   </body>

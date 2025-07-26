@@ -21,8 +21,13 @@ router.get("/seed", (req, res) => {
   Todo.insertMany([
     {
       todo: "homework",
-      desciption: "do it tonight",
+      description: "do it tonight",
       isDone: true,
+    },
+    {
+      todo: "grocery",
+      description: "ask hameeda",
+      isDone: false,
     },
   ]).then((responseDb) => {
     console.log(responseDb);
@@ -31,8 +36,14 @@ router.get("/seed", (req, res) => {
 });
 
 // INDEX route
-router.get("/", (req, res) => {
-  res.render("index.ejs", { lists });
+router.get("/", async (req, res) => {
+  //  res.render("index.ejs", { lists });
+  try {
+    const todos = await Todo.find();
+    res.render("index.ejs", { todos });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // new route
@@ -41,9 +52,15 @@ router.get("/new", (req, res) => {
 });
 
 // DELETE route
-router.delete("/:id", (req, res) => {
-  lists.splice(req.params.id, 1);
-  res.redirect("/todo");
+router.delete("/:id", async (req, res) => {
+  // lists.splice(req.params.id, 1);
+  // res.redirect("/todo");
+  try {
+    await Todo.findByIdAndDelete(req.params.id);
+    res.redirect("/todo");
+  } catch (err) {
+    res.json(err);
+  }
 });
 
 // update route
@@ -53,11 +70,22 @@ router.put("/:id", (req, res) => {
 });
 
 // Create route
-router.post("/", (req, res) => {
-  req.body.isDone = req.body.isDone === "on" ? true : false;
-  list.push(req.body);
-
-  res.redirect("/todo");
+router.post("/", async (req, res) => {
+  // req.body.isDone = req.body.isDone === "on" ? true : false;
+  // list.push(req.body);
+  //
+  // res.redirect("/todo");
+  try {
+    const { todo, description } = req.body;
+    await Todo.create({
+      todo,
+      description,
+      isDone: req.body.isDone === "on",
+    });
+    res.redirect("/todo");
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // edit route

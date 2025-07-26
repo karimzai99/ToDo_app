@@ -10,18 +10,19 @@
 
     <div class="todo-list">
       <ol>
-        <% lists.forEach((el, ind) => { %>
+        <% todos.forEach((el) => { %>
         <li>
           <div class="task-text">
             <a
-              href="/todo/<%= ind %>"
+              href="/todo/<%= el._id %>"
               class="<%= el.isDone ? 'completed' : '' %>"
-              ><%= el.toDo %></a
             >
+              <%= el.todo %>
+            </a>
           </div>
 
           <div class="todo-buttons">
-            <form action="/todo/<%= ind %>?_method=PUT" method="POST">
+            <form action="/todo/<%= el._id %>?_method=PUT" method="POST">
               <input
                 type="submit"
                 value="<%= el.isDone ? 'Undone' : 'Done' %>"
@@ -29,7 +30,7 @@
               />
             </form>
 
-            <form action="/todo/<%= ind %>?_method=DELETE" method="POST">
+            <form action="/todo/<%= el._id %>?_method=DELETE" method="POST">
               <input type="submit" value="DELETE" />
             </form>
           </div>
