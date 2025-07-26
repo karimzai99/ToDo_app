@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+require("./config/database.js");
+
 const methodOverRide = require("method-override");
 const todoControllers = require("./controllers/TodoControllers.js");
 

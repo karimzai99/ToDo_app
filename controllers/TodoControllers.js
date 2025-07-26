@@ -1,4 +1,5 @@
 // 1. database connection
+const Todo = require("../models/LIst_items");
 
 // express
 const express = require("express");
@@ -12,6 +13,22 @@ const list = require("../models/list_item.js");
 // router.get("/", (req, res) => {
 //   res.send(list);
 // });
+
+// seed data
+
+router.get("/seed", (req, res) => {
+  //   res.send("seeding data");
+  Todo.insertMany([
+    {
+      todo: "homework",
+      desciption: "do it tonight",
+      isDone: true,
+    },
+  ]).then((responseDb) => {
+    console.log(responseDb);
+    res.send(responseDb);
+  });
+});
 
 // INDEX route
 router.get("/", (req, res) => {
