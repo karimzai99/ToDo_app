@@ -13,7 +13,17 @@
   "dependencies": {
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
+    "expree": "^2.1.0",
     "express": "^5.1.0",
     "method-override": "^3.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karimzai99/ToDo_app.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/karimzai99/ToDo_app/issues"
+  },
+  "homepage": "https://github.com/karimzai99/ToDo_app#readme"
 }
