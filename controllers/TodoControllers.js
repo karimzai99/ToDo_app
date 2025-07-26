@@ -64,9 +64,20 @@ router.delete("/:id", async (req, res) => {
 });
 
 // update route
-router.put("/:id", (req, res) => {
-  lists[req.params.id].isDone = !lists[req.params.id].isDone;
-  res.redirect("/todo");
+router.put("/:id", async (req, res) => {
+  // Todo[req.params.id].isDone = !Todo[req.params.id].isDone;
+  // res.redirect("/todo");
+
+  try {
+    const todo = await Todo.findById(req.params.id);
+
+    await Todo.findByIdAndUpdate(req.params.id, {
+      isDone: !todo.isDone,
+    });
+    res.redirect("/todo");
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // Create route
