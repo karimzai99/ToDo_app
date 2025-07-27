@@ -84,9 +84,6 @@ Visit: [http://localhost:3000/todo](http://localhost:3000/todo)
 
 ✅ Built with ❤️ to help you stay organized and productive.
 
-```
 
----
 
-Let me know if you'd like to include a deployment guide (e.g. for Heroku, Render, Vercel) or screenshots of your UI.
-```
+
