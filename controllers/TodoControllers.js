@@ -5,14 +5,6 @@ const Todo = require("../models/LIst_items");
 const express = require("express");
 // router
 const router = express.Router();
-// data
-const lists = require("../models/list_item.js");
-const list = require("../models/list_item.js");
-
-//
-// router.get("/", (req, res) => {
-//   res.send(list);
-// });
 
 // seed data
 
@@ -37,12 +29,12 @@ router.get("/seed", (req, res) => {
 
 // INDEX route
 router.get("/", async (req, res) => {
-  //  res.render("index.ejs", { lists });
   try {
     const todos = await Todo.find();
     res.render("index.ejs", { todos });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    res.status(500).send("Update failed");
   }
 });
 
@@ -53,39 +45,49 @@ router.get("/new", (req, res) => {
 
 // DELETE route
 router.delete("/:id", async (req, res) => {
-  // lists.splice(req.params.id, 1);
-  // res.redirect("/todo");
   try {
     await Todo.findByIdAndDelete(req.params.id);
     res.redirect("/todo");
   } catch (err) {
-    res.json(err);
+    console.error(err);
+    res.status(500).send("Update failed");
   }
 });
 
 // update route
 router.put("/:id", async (req, res) => {
-  // Todo[req.params.id].isDone = !Todo[req.params.id].isDone;
-  // res.redirect("/todo");
+  try {
+    const todo = await Todo.findById(req.params.id);
 
+    await Todo.findByIdAndUpdate(req.params.id, {
+      todo: req.body.todo,
+      description: req.body.description,
+    });
+
+    res.redirect("/todo");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Update failed");
+  }
+});
+
+router.put("/toggle/:id", async (req, res) => {
   try {
     const todo = await Todo.findById(req.params.id);
 
     await Todo.findByIdAndUpdate(req.params.id, {
       isDone: !todo.isDone,
     });
+
     res.redirect("/todo");
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    res.status(500).send("Update failed");
   }
 });
 
 // Create route
 router.post("/", async (req, res) => {
-  // req.body.isDone = req.body.isDone === "on" ? true : false;
-  // list.push(req.body);
-  //
-  // res.redirect("/todo");
   try {
     const { todo, description } = req.body;
     await Todo.create({
@@ -95,25 +97,32 @@ router.post("/", async (req, res) => {
     });
     res.redirect("/todo");
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    res.status(500).send("Update failed");
   }
 });
 
 // edit route
-
-router.get("/:index/edit", (req, res) => {
-  res.render("edit.ejs", {
-    list: lists[req.params.index],
-    index: req.params.index,
-  });
+router.get("/:id/edit", async (req, res) => {
+  try {
+    const todo = await Todo.findById(req.params.id);
+    res.render("edit", { todo });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Update failed");
+  }
 });
 
 // show route
-router.get("/:index", (req, res) => {
-  //   res.send(req.params.index);
-  const list = lists[req.params.index];
-  const parm = req.params.index;
-  res.render("view.ejs", { list, parm });
+router.get("/:id", async (req, res) => {
+  try {
+    const todo = await Todo.findById(req.params.id);
+    if (!todo) return res.status(404).send("Todo not found");
+    res.render("view", { todo });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Update failed");
+  }
 });
 
 module.exports = router;

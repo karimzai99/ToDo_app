@@ -10,7 +10,8 @@ const todoControllers = require("./controllers/TodoControllers.js");
 // MIDDLE WARE
 require("dotenv").config();
 const port = process.env.PORT || 3000;
-app.use(express.static("public")); // publlic folder connected
+app.use(express.static("public")); // public folder connected
+app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

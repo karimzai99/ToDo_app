@@ -1,4 +1,3 @@
-/* Reset some default styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -69,12 +68,11 @@ form input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Center helper */
+/* Center */
 .center {
   text-align: center;
 }
 
-/* Buttons (like "Create New") */
 .btn {
   display: inline-block;
   margin-top: 1rem;
@@ -101,7 +99,6 @@ form input[type="submit"]:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* List layout */
 .todo-list ol {
   padding-left: 1.2rem;
   list-style: decimal;
@@ -124,7 +121,6 @@ form input[type="submit"]:hover {
   word-break: break-word;
 }
 
-/* Completed tasks */
 .task-text a {
   color: #007bff;
   text-decoration: none;
@@ -141,7 +137,6 @@ form input[type="submit"]:hover {
   pointer-events: none;
 }
 
-/* Button group beside each task */
 .todo-buttons {
   display: flex;
   gap: 0.5rem;
@@ -178,7 +173,6 @@ form input[type="submit"]:hover {
   background-color: #a71d2a;
 }
 
-/* View & Edit containers */
 .view-container,
 .edit-container {
   max-width: 600px;

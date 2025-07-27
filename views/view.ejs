@@ -3,12 +3,11 @@
   <%- include('./partials/header') %>
   <body>
     <div class="view-container">
-      <% todos.forEach(todo => { %>
       <div class="todo-item">
-        <h1><%= todo.toDo %></h1>
+        <h1><%= todo.todo %></h1>
         <p>
           <strong>Description:</strong>
-          <%= todo.desciption || 'No description provided.' %>
+          <%= todo.description || 'No description provided.' %>
         </p>
         <p>
           <strong>Status:</strong>
@@ -24,7 +23,6 @@
           <a href="/todo" class="btn" style="background-color: #007bff">Home</a>
         </div>
       </div>
-      <% }) %>
     </div>
     <%- include('./partials/footer') %>
   </body>

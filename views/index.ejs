@@ -22,7 +22,7 @@
           </div>
 
           <div class="todo-buttons">
-            <form action="/todo/<%= el._id %>?_method=PUT" method="POST">
+            <form action="/todo/toggle/<%= el._id %>?_method=PUT" method="POST">
               <input
                 type="submit"
                 value="<%= el.isDone ? 'Undone' : 'Done' %>"
