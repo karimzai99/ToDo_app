@@ -1,6 +1,5 @@
-Here is your complete and polished `README.md` file in one copy-paste-ready block:
 
----
+
 
 ```markdown
 # 📝 ToDo App
