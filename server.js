@@ -19,9 +19,6 @@ app.use(methodOverRide("_method"));
 
 // routes
 app.use("/todo", todoControllers);
-app.get("/", (res, req) => {
-  res.send('page is live')
-})
 
 app.listen(port, (req, res) => {
   console.log(`app is working at port ${port}`);
