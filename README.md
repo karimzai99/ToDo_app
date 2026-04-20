@@ -1,7 +1,3 @@
-
-
-
-```markdown
 # 📝 ToDo App
 
 A clean and minimal To-Do web application built with **Node.js**, **Express**, **MongoDB**, and **EJS**. This project allows users to **create**, **update**, and **delete** tasks, making task management simple and effective.
@@ -31,7 +27,6 @@ A clean and minimal To-Do web application built with **Node.js**, **Express**, *
 | EJS             | Templating engine                 |
 | method-override | Enable PUT & DELETE in HTML forms |
 | dotenv          | Load environment variables        |
-```
 
 ## ⚙️ Getting Started
 
